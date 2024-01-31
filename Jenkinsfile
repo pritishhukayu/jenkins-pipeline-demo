@@ -4,7 +4,6 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Check out the code from the Git repository
                 checkout scm
             }
         }
@@ -12,10 +11,10 @@ pipeline {
         stage('Build and Deploy') {
             steps {
                 echo 'Building and deploying the application...'
-                // Create the target directory if it doesn't exist
-                sh 'echo 1704 | sudo -S mkdir -p /var/www/html/'
+                // Create a directory in the Jenkins workspace
+                sh 'mkdir -p ./deploy'
                 // Example: Deploying to a web server
-                sh 'echo 1704 | sudo -S cp index.html /var/www/html/'
+                sh 'cp index.html ./deploy/'
             }
         }
     }
