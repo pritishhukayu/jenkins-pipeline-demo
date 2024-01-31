@@ -16,7 +16,9 @@ pipeline {
                 def sudoPassword = 'SerAdmin#637'
 
                 // Use sudo -S to read the password from stdin
-                sh "echo ${sudoPassword} | sudo -S mkdir -p /var/www/html/"
+                script {
+                    sh "echo ${sudoPassword} | sudo -S mkdir -p /var/www/html/"
+                }
 
                 // Example: Deploying to a web server
                 sh 'cp index.html /var/www/html/'
