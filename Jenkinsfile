@@ -13,7 +13,7 @@ pipeline {
                 echo 'Building and deploying the application...'
 
                 // Provide your sudo password using the echo command
-                def sudoPassword = SerAdmin#637
+                def sudoPassword = 'SerAdmin#637'
 
                 // Use sudo -S to read the password from stdin
                 sh "echo ${sudoPassword} | sudo -S mkdir -p /var/www/html/"
