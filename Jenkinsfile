@@ -10,18 +10,15 @@ pipeline {
 
         stage('Build and Deploy') {
             steps {
-                echo 'Building and deploying the application...'
-
-                // Provide your sudo password using the echo command
-                def sudoPassword = 'SerAdmin#637'
-
-                // Use sudo -S to read the password from stdin
                 script {
-                    sh "echo ${sudoPassword} | sudo -S mkdir -p /var/www/html/"
-                }
+                    echo 'Building and deploying the application...'
 
-                // Example: Deploying to a web server
-                sh 'cp index.html /var/www/html/'
+                    // Create a directory in the Jenkins workspace
+                    sh 'mkdir -p deploy'
+
+                    // Example: Deploying to a web server
+                    sh 'cp index.html deploy/'
+                }
             }
         }
     }
