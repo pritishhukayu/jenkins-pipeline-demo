@@ -13,9 +13,9 @@ pipeline {
             steps {
                 echo 'Building and deploying the application...'
                 // Create the target directory if it doesn't exist
-                sh 'mkdir -p /var/www/html/'
+                sh 'sudo mkdir -p /var/www/html/'
                 // Example: Deploying to a web server
-                sh 'cp index.html /var/www/html/'
+                sh 'sudo cp index.html /var/www/html/'
             }
         }
     }
